@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 // binarySearch - search item in sorted array
 func binarySearch(nums []int, target int) int {
@@ -25,4 +28,5 @@ func main() {
 	sortedArr := []int{-1, 0, 3, 5, 9, 12}
 
 	fmt.Println(binarySearch(sortedArr, 9))
+	fmt.Println(sort.SearchInts(sortedArr, 9))
 }

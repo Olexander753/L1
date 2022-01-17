@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sort"
+	"time"
 )
 
 // quicksort - sorts array with O(n*log(n))
@@ -13,6 +15,7 @@ func quicksort(a []int) []int {
 
 	left, right := 0, len(a)-1
 
+	rand.Seed(time.Now().UnixNano())
 	pivot := rand.Int() % len(a)
 
 	a[pivot], a[right] = a[right], a[pivot]
@@ -33,8 +36,9 @@ func quicksort(a []int) []int {
 }
 
 func main() {
-	a := []int{3, 7, 2, 9, 0, 1, 6, 8, 4, 5}
+	a := []int{3, 7, 2, 9, 0, 1, 6, 8, 4}
 	fmt.Println(a)
-	a = quicksort(a)
+	fmt.Println(quicksort(a))
+	sort.Ints(a)
 	fmt.Println(a)
 }
