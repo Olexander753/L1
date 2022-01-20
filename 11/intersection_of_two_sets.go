@@ -5,6 +5,8 @@ import "fmt"
 // intersection - intersects two slices
 func intersection(a, b []int) []int {
 	set1 := make(map[int]bool, len(a))
+	set2 := make(map[int]bool, len(b))
+
 	var res []int
 
 	for _, val := range a {
@@ -12,8 +14,12 @@ func intersection(a, b []int) []int {
 	}
 
 	for _, val := range b {
-		if set1[val] {
-			res = append(res, val)
+		set2[val] = true
+	}
+
+	for key := range set2 {
+		if set1[key] {
+			res = append(res, key)
 		}
 	}
 
